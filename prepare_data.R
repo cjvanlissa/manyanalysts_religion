@@ -7,7 +7,7 @@ library(worcs)
 
 # Load data
 
-# df <- ...
+# replace this with code to load data
 source("fake_data.R")
 # Recode missing data
 
@@ -46,4 +46,8 @@ majority <- tapply(df$ethnicity, df$country, function(x){
 # Create variable to use in analysis: Is the participant part of the majority ethnicity in their country?
 df$majority <- as.numeric(df$ethnicity == majority[df$country])
 
+# Check data for outliers (out of range as specified in data documentation)
+worcs::descriptives(df)
+
+# Save data
 closed_data(df)

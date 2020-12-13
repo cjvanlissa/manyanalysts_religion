@@ -70,3 +70,11 @@ principles of Open Science throughout a research project.
 ## Notes for cautious researchers
 
 Some researchers might want to share their work only once the paper is accepted for publication. In this case, we recommend creating a "Private" repository in Step 1, and completing Steps 13-18 upon acceptance.
+
+
+## Access to data
+
+Some of the data used in this project are not publically available.
+To request access to the original data, [open a GitHub issue](https://docs.github.com/en/free-pro-team@latest/github/managing-your-work-on-github/creating-an-issue).
+
+<!--Clarify here how users should contact you to gain access to the data, or to submit syntax for evaluation on the original data.-->
