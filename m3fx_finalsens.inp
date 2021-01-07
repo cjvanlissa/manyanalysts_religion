@@ -1,0 +1,33 @@
+TITLE:
+M3fx_final
+DATA:
+FILE = "m3fx_finalsens_8528398926a47c84a09f0535e72b4aaf.dat";
+ 
+VARIABLE:
+NAMES = country age gender ses education majority rel cnorm well int; 
+ MISSING=.;
+ WITHIN = age gender ses education majority
+rel
+cnorm
+int;
+CLUSTER IS country;
+ANALYSIS:
+TYPE = TWOLEVEL RANDOM;
+MODEL:
+%WITHIN%
+sreli | well ON rel;
+snorm | well ON cnorm;
+sint | well ON int;
+well ON age;
+well ON gender;
+well ON ses;
+well ON education;
+well ON majority;
+%BETWEEN%
+[well];
+[sreli];
+[snorm];
+[sint];
+sreli@0;
+snorm@0;
+sint@0;

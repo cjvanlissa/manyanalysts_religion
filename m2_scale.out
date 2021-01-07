@@ -1,0 +1,237 @@
+Mplus VERSION 8.3
+MUTHEN & MUTHEN
+01/06/2021  10:40 AM
+
+INPUT INSTRUCTIONS
+
+  TITLE:
+  M2_scale
+  DATA:
+  FILE = "m2_scale_2e2437c18a98deb9361ae53275a222d8.dat";
+
+  VARIABLE:
+  NAMES = country age gender ses education majority rel cnorm well;
+   MISSING=.;
+   WITHIN = age gender ses education majority
+  rel
+  cnorm
+  ;
+  CLUSTER IS country;
+  ANALYSIS:
+  TYPE = TWOLEVEL RANDOM;
+  MODEL:
+  %WITHIN%
+  sreli | well ON rel;
+  snorm | well ON cnorm;
+  well ON age;
+  well ON gender;
+  well ON ses;
+  well ON education;
+  well ON majority;
+  %BETWEEN%
+  [well];
+  [sreli];
+  [snorm];
+  sreli;
+  snorm;
+
+
+
+*** WARNING in VARIABLE command
+  Note that only the first 8 characters of variable names are used in the output.
+  Shorten variable names to avoid any confusion.
+   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+M2_scale
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        7136
+
+Number of dependent variables                                    1
+Number of independent variables                                  7
+Number of continuous latent variables                            2
+
+Observed dependent variables
+
+  Continuous
+   WELL
+
+Observed independent variables
+   AGE         GENDER      SES         EDUCATIO    MAJORITY    REL
+   CNORM
+
+Continuous latent variables
+   SRELI       SNORM
+
+Variables with special functions
+
+  Cluster variable      COUNTRY
+
+  Within variables
+   AGE         GENDER      SES         EDUCATIO    MAJORITY    REL
+   CNORM
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                                500
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  m2_scale_2e2437c18a98deb9361ae53275a222d8.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             1
+     Number of clusters                         24
+
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              WELL          AGE           GENDER        SES           EDUCATIO
+              ________      ________      ________      ________      ________
+ WELL           1.000
+ AGE            1.000         1.000
+ GENDER         1.000         1.000         1.000
+ SES            1.000         1.000         1.000         1.000
+ EDUCATIO       1.000         1.000         1.000         1.000         1.000
+ MAJORITY       1.000         1.000         1.000         1.000         1.000
+ REL            1.000         1.000         1.000         1.000         1.000
+ CNORM          1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              MAJORITY      REL           CNORM
+              ________      ________      ________
+ MAJORITY       1.000
+ REL            1.000         1.000
+ CNORM          1.000         1.000         1.000
+
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     WELL                  0.000      -0.641      -2.549    0.03%      -0.549     -0.049      0.076
+            7136.000       0.426       0.204       1.389    0.15%       0.264      0.576
+     AGE                  33.698       1.184       0.000    0.03%      23.000     26.000     29.000
+            7136.000     186.577       0.755      86.000    0.01%      33.000     44.000
+     GENDER                1.573      -0.295       1.000   42.71%       1.000      1.000      2.000
+            7136.000       0.245      -1.913       2.000   57.29%       2.000      2.000
+     SES                   6.081      -0.427       1.000    1.15%       5.000      6.000      6.000
+            7136.000       3.100       0.078      10.000    1.68%       7.000      8.000
+     EDUCATION             4.646      -0.041       1.000    0.76%       4.000      4.000      5.000
+            7136.000       1.571      -0.207       7.000    8.72%       5.000      6.000
+     MAJORITY              0.873      -2.254       0.000   12.58%       1.000      1.000      1.000
+            7136.000       0.110       3.085       1.000   83.35%       1.000      1.000
+     REL                   0.000       0.476      -0.364   10.09%      -0.293     -0.162     -0.067
+            7136.000       0.090      -1.054       0.636    0.88%       0.051      0.318
+     CNORM                 0.000       0.254      -0.413   12.33%      -0.163     -0.163     -0.038
+            7136.000       0.070      -0.632       0.587    3.49%       0.087      0.212
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       12
+
+Loglikelihood
+
+          H0 Value                       -6020.838
+          H0 Scaling Correction Factor      2.1060
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   12065.676
+          Bayesian (BIC)                 12148.151
+          Sample-Size Adjusted BIC       12110.018
+            (n* = (n + 2) / 24)
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Within Level
+
+ WELL       ON
+    AGE                0.003      0.001      3.351      0.001
+    GENDER            -0.008      0.018     -0.426      0.670
+    SES                0.137      0.011     12.014      0.000
+    EDUCATION          0.030      0.007      4.590      0.000
+    MAJORITY           0.029      0.023      1.230      0.219
+
+ Residual Variances
+    WELL               0.312      0.012     26.448      0.000
+
+Between Level
+
+ Means
+    WELL              -1.111      0.102    -10.863      0.000
+    SRELI              0.276      0.028      9.902      0.000
+    SNORM              0.111      0.046      2.430      0.015
+
+ Variances
+    WELL               0.020      0.010      2.087      0.037
+    SRELI              0.004      0.004      1.034      0.301
+    SNORM              0.027      0.015      1.802      0.071
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.943E-05
+       (ratio of smallest to largest eigenvalue)
+
+
+     Beginning Time:  10:40:38
+        Ending Time:  10:40:39
+       Elapsed Time:  00:00:01
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2019 Muthen & Muthen

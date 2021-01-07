@@ -1,0 +1,635 @@
+Mplus VERSION 8.3
+MUTHEN & MUTHEN
+01/06/2021   9:50 AM
+
+INPUT INSTRUCTIONS
+
+  TITLE:
+  M3
+  DATA:
+  FILE = "m1_b1f90dcea85f1b799ee243513f108fb2.dat";
+
+  VARIABLE:
+  NAMES = country rel_1 rel_2 rel_5 rel_6 rel_7 rel_8 rel_9 cnorm_1 cnorm_2 wb_phys_1
+       wb_phys_2 wb_phys_3 wb_phys_4 wb_phys_5 wb_phys_6 wb_phys_7 wb_psych_1
+       wb_psych_2 wb_psych_3 wb_psych_4 wb_psych_5 wb_psych_6 wb_soc_1 wb_soc_2
+       wb_soc_3 age gender ses education majority;
+   MISSING=.;
+   WITHIN = age gender ses education majority
+  rel_1-rel_2
+  rel_5-rel_9
+  cnorm_1-cnorm_2
+  wb_phys_1-wb_phys_7
+  wb_psych_1-wb_psych_6
+  wb_soc_1-wb_soc_3;
+  CLUSTER IS country;
+  ANALYSIS:
+  TYPE = TWOLEVEL RANDOM;
+  ALGORITHM = INTEGRATION;
+  INTEGRATION=MONTECARLO (500);
+  MODEL:
+  %WITHIN%
+  rel BY rel_1-rel_2;
+  rel BY rel_5-rel_9;
+  cnorm BY cnorm_1-cnorm_2;
+  well BY wb_phys_1-wb_phys_7;
+  well BY wb_psych_1-wb_psych_6;
+  well BY wb_soc_1-wb_soc_3;
+  int | rel XWITH cnorm;
+  sreli | well ON rel;
+  snorm | well ON cnorm;
+  sint | well ON int;
+  well ON age;
+  well ON gender;
+  well ON ses;
+  well ON education;
+  well ON majority;
+  %BETWEEN%
+  [sreli];
+  [snorm];
+  [sint];
+  sreli;
+  snorm;
+  sint;
+  OUTPUT:
+  TECH3 TECH10;
+
+
+
+*** WARNING in VARIABLE command
+  Note that only the first 8 characters of variable names are used in the output.
+  Shorten variable names to avoid any confusion.
+*** WARNING in OUTPUT command
+  TECH10 option is only available with categorical or count outcomes.
+  Request for TECH10 is ignored.
+   2 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+M3
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        7136
+
+Number of dependent variables                                   25
+Number of independent variables                                  5
+Number of continuous latent variables                            7
+
+Observed dependent variables
+
+  Continuous
+   REL_1       REL_2       REL_5       REL_6       REL_7       REL_8
+   REL_9       CNORM_1     CNORM_2     WB_PHYS_1   WB_PHYS_2   WB_PHYS_3
+   WB_PHYS_4   WB_PHYS_5   WB_PHYS_6   WB_PHYS_7   WB_PSYCH_1  WB_PSYCH_2
+   WB_PSYCH_3  WB_PSYCH_4  WB_PSYCH_5  WB_PSYCH_6  WB_SOC_1    WB_SOC_2
+   WB_SOC_3
+
+Observed independent variables
+   AGE         GENDER      SES         EDUCATIO    MAJORITY
+
+Continuous latent variables
+   REL         CNORM       WELL        INT         SRELI       SNORM
+   SINT
+
+Variables with special functions
+
+  Cluster variable      COUNTRY
+
+  Within variables
+   REL_1       REL_2       REL_5       REL_6       REL_7       REL_8
+   REL_9       CNORM_1     CNORM_2     WB_PHYS_    WB_PHYS_    WB_PHYS_
+   WB_PHYS_    WB_PHYS_    WB_PHYS_    WB_PHYS_    WB_PSYCH    WB_PSYCH
+   WB_PSYCH    WB_PSYCH    WB_PSYCH    WB_PSYCH    WB_SOC_1    WB_SOC_2
+   WB_SOC_3    AGE         GENDER      SES         EDUCATIO    MAJORITY
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                 100
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-02
+    Relative loglikelihood change                        0.100D-05
+    Derivative                                           0.100D-02
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-02
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-02
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+Integration Specifications
+  Type                                                  MONTECARLO
+  Number of integration points                                 500
+  Dimensions of numerical integration                            6
+  Adaptive quadrature                                          OFF
+  Monte Carlo integration seed                                   0
+Cholesky                                                       OFF
+
+Input data file(s)
+  m1_b1f90dcea85f1b799ee243513f108fb2.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             1
+     Number of clusters                         24
+
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT FOR Y
+
+
+           Covariance Coverage
+              REL_1         REL_2         REL_5         REL_6         REL_7
+              ________      ________      ________      ________      ________
+ REL_1          1.000
+ REL_2          1.000         1.000
+ REL_5          1.000         1.000         1.000
+ REL_6          1.000         1.000         1.000         1.000
+ REL_7          1.000         1.000         1.000         1.000         1.000
+ REL_8          1.000         1.000         1.000         1.000         1.000
+ REL_9          1.000         1.000         1.000         1.000         1.000
+ CNORM_1        1.000         1.000         1.000         1.000         1.000
+ CNORM_2        1.000         1.000         1.000         1.000         1.000
+ WB_PHYS_       1.000         1.000         1.000         1.000         1.000
+ WB_PHYS_       1.000         1.000         1.000         1.000         1.000
+ WB_PHYS_       1.000         1.000         1.000         1.000         1.000
+ WB_PHYS_       1.000         1.000         1.000         1.000         1.000
+ WB_PHYS_       1.000         1.000         1.000         1.000         1.000
+ WB_PHYS_       1.000         1.000         1.000         1.000         1.000
+ WB_PHYS_       1.000         1.000         1.000         1.000         1.000
+ WB_PSYCH       1.000         1.000         1.000         1.000         1.000
+ WB_PSYCH       1.000         1.000         1.000         1.000         1.000
+ WB_PSYCH       1.000         1.000         1.000         1.000         1.000
+ WB_PSYCH       1.000         1.000         1.000         1.000         1.000
+ WB_PSYCH       1.000         1.000         1.000         1.000         1.000
+ WB_PSYCH       1.000         1.000         1.000         1.000         1.000
+ WB_SOC_1       1.000         1.000         1.000         1.000         1.000
+ WB_SOC_2       1.000         1.000         1.000         1.000         1.000
+ WB_SOC_3       1.000         1.000         1.000         1.000         1.000
+ AGE            1.000         1.000         1.000         1.000         1.000
+ GENDER         1.000         1.000         1.000         1.000         1.000
+ SES            1.000         1.000         1.000         1.000         1.000
+ EDUCATIO       1.000         1.000         1.000         1.000         1.000
+ MAJORITY       1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              REL_8         REL_9         CNORM_1       CNORM_2       WB_PHYS_
+              ________      ________      ________      ________      ________
+ REL_8          1.000
+ REL_9          1.000         1.000
+ CNORM_1        1.000         1.000         1.000
+ CNORM_2        1.000         1.000         1.000         1.000
+ WB_PHYS_       1.000         1.000         1.000         1.000         1.000
+ WB_PHYS_       1.000         1.000         1.000         1.000         1.000
+ WB_PHYS_       1.000         1.000         1.000         1.000         1.000
+ WB_PHYS_       1.000         1.000         1.000         1.000         1.000
+ WB_PHYS_       1.000         1.000         1.000         1.000         1.000
+ WB_PHYS_       1.000         1.000         1.000         1.000         1.000
+ WB_PHYS_       1.000         1.000         1.000         1.000         1.000
+ WB_PSYCH       1.000         1.000         1.000         1.000         1.000
+ WB_PSYCH       1.000         1.000         1.000         1.000         1.000
+ WB_PSYCH       1.000         1.000         1.000         1.000         1.000
+ WB_PSYCH       1.000         1.000         1.000         1.000         1.000
+ WB_PSYCH       1.000         1.000         1.000         1.000         1.000
+ WB_PSYCH       1.000         1.000         1.000         1.000         1.000
+ WB_SOC_1       1.000         1.000         1.000         1.000         1.000
+ WB_SOC_2       1.000         1.000         1.000         1.000         1.000
+ WB_SOC_3       1.000         1.000         1.000         1.000         1.000
+ AGE            1.000         1.000         1.000         1.000         1.000
+ GENDER         1.000         1.000         1.000         1.000         1.000
+ SES            1.000         1.000         1.000         1.000         1.000
+ EDUCATIO       1.000         1.000         1.000         1.000         1.000
+ MAJORITY       1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              WB_PHYS_      WB_PHYS_      WB_PHYS_      WB_PHYS_      WB_PHYS_
+              ________      ________      ________      ________      ________
+ WB_PHYS_       1.000
+ WB_PHYS_       1.000         1.000
+ WB_PHYS_       1.000         1.000         1.000
+ WB_PHYS_       1.000         1.000         1.000         1.000
+ WB_PHYS_       1.000         1.000         1.000         1.000         1.000
+ WB_PHYS_       1.000         1.000         1.000         1.000         1.000
+ WB_PSYCH       1.000         1.000         1.000         1.000         1.000
+ WB_PSYCH       1.000         1.000         1.000         1.000         1.000
+ WB_PSYCH       1.000         1.000         1.000         1.000         1.000
+ WB_PSYCH       1.000         1.000         1.000         1.000         1.000
+ WB_PSYCH       1.000         1.000         1.000         1.000         1.000
+ WB_PSYCH       1.000         1.000         1.000         1.000         1.000
+ WB_SOC_1       1.000         1.000         1.000         1.000         1.000
+ WB_SOC_2       1.000         1.000         1.000         1.000         1.000
+ WB_SOC_3       1.000         1.000         1.000         1.000         1.000
+ AGE            1.000         1.000         1.000         1.000         1.000
+ GENDER         1.000         1.000         1.000         1.000         1.000
+ SES            1.000         1.000         1.000         1.000         1.000
+ EDUCATIO       1.000         1.000         1.000         1.000         1.000
+ MAJORITY       1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              WB_PHYS_      WB_PSYCH      WB_PSYCH      WB_PSYCH      WB_PSYCH
+              ________      ________      ________      ________      ________
+ WB_PHYS_       1.000
+ WB_PSYCH       1.000         1.000
+ WB_PSYCH       1.000         1.000         1.000
+ WB_PSYCH       1.000         1.000         1.000         1.000
+ WB_PSYCH       1.000         1.000         1.000         1.000         1.000
+ WB_PSYCH       1.000         1.000         1.000         1.000         1.000
+ WB_PSYCH       1.000         1.000         1.000         1.000         1.000
+ WB_SOC_1       1.000         1.000         1.000         1.000         1.000
+ WB_SOC_2       1.000         1.000         1.000         1.000         1.000
+ WB_SOC_3       1.000         1.000         1.000         1.000         1.000
+ AGE            1.000         1.000         1.000         1.000         1.000
+ GENDER         1.000         1.000         1.000         1.000         1.000
+ SES            1.000         1.000         1.000         1.000         1.000
+ EDUCATIO       1.000         1.000         1.000         1.000         1.000
+ MAJORITY       1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              WB_PSYCH      WB_PSYCH      WB_SOC_1      WB_SOC_2      WB_SOC_3
+              ________      ________      ________      ________      ________
+ WB_PSYCH       1.000
+ WB_PSYCH       1.000         1.000
+ WB_SOC_1       1.000         1.000         1.000
+ WB_SOC_2       1.000         1.000         1.000         1.000
+ WB_SOC_3       1.000         1.000         1.000         1.000         1.000
+ AGE            1.000         1.000         1.000         1.000         1.000
+ GENDER         1.000         1.000         1.000         1.000         1.000
+ SES            1.000         1.000         1.000         1.000         1.000
+ EDUCATIO       1.000         1.000         1.000         1.000         1.000
+ MAJORITY       1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              AGE           GENDER        SES           EDUCATIO      MAJORITY
+              ________      ________      ________      ________      ________
+ AGE            1.000
+ GENDER         1.000         1.000
+ SES            1.000         1.000         1.000
+ EDUCATIO       1.000         1.000         1.000         1.000
+ MAJORITY       1.000         1.000         1.000         1.000         1.000
+
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     REL_1                 0.263       0.892       0.000   49.27%       0.000      0.000      0.167
+            7136.000       0.104      -0.578       1.000    4.33%       0.167      0.500
+     REL_2                 0.311       0.681       0.000   48.58%       0.000      0.000      0.143
+            7136.000       0.137      -1.159       1.000    8.80%       0.286      0.714
+     REL_5                 0.441       0.149       0.000   20.32%       0.000      0.333      0.500
+            7136.000       0.112      -1.262       1.000   10.03%       0.500      0.833
+     REL_6                 0.465       0.138       0.000   25.63%       0.000      0.167      0.500
+            7136.000       0.148      -1.527       1.000   21.05%       0.667      1.000
+     REL_7                 0.463       0.136       0.000   25.21%       0.000      0.333      0.500
+            7136.000       0.142      -1.470       1.000   19.46%       0.667      0.833
+     REL_8                 0.254       0.982       0.000   51.56%       0.000      0.000      0.000
+            7136.000       0.101      -0.272       1.000    6.28%       0.250      0.500
+     REL_9                 0.349       0.592       0.000   43.27%       0.000      0.000      0.250
+            7136.000       0.141      -1.146       1.000   15.05%       0.500      0.750
+     CNORM_1               0.377       0.366       0.000   18.83%       0.250      0.250      0.250
+            7136.000       0.072      -0.489       1.000    4.22%       0.500      0.500
+     CNORM_2               0.449       0.234       0.000   15.04%       0.250      0.250      0.500
+            7136.000       0.089      -0.811       1.000   10.33%       0.500      0.750
+     WB_PHYS_1             3.989      -0.852       1.000    1.96%       3.000      4.000      4.000
+            7136.000       1.136      -0.151       5.000   40.61%       5.000      5.000
+     WB_PHYS_2             4.185      -1.278       1.000    3.25%       3.000      4.000      5.000
+            7136.000       1.203       0.740       5.000   54.39%       5.000      5.000
+     WB_PHYS_3             3.625      -0.557       1.000    2.47%       3.000      4.000      4.000
+            7136.000       0.931      -0.048       5.000   16.89%       4.000      4.000
+     WB_PHYS_4             4.300      -1.374       1.000    1.18%       4.000      4.000      5.000
+            7136.000       0.769       1.811       5.000   50.66%       5.000      5.000
+     WB_PHYS_5             3.381      -0.403       1.000    4.85%       2.000      3.000      4.000
+            7136.000       1.189      -0.695       5.000   13.35%       4.000      4.000
+     WB_PHYS_6             3.735      -0.697       1.000    2.02%       3.000      4.000      4.000
+            7136.000       0.938       0.053       5.000   20.29%       4.000      5.000
+     WB_PHYS_7             3.662      -0.702       1.000    3.52%       3.000      4.000      4.000
+            7136.000       1.063      -0.048       5.000   19.70%       4.000      4.000
+     WB_PSYCH_1            3.577      -0.461       1.000    1.79%       3.000      3.000      4.000
+            7136.000       0.825      -0.028       5.000   13.40%       4.000      4.000
+     WB_PSYCH_2            3.509      -0.495       1.000    5.23%       3.000      3.000      4.000
+            7136.000       1.173      -0.349       5.000   18.32%       4.000      4.000
+     WB_PSYCH_3            3.520      -0.342       1.000    1.75%       3.000      3.000      4.000
+            7136.000       0.818      -0.127       5.000   12.49%       4.000      4.000
+     WB_PSYCH_4            3.561      -0.575       1.000    5.26%       3.000      3.000      4.000
+            7136.000       1.192      -0.295       5.000   19.84%       4.000      4.000
+     WB_PSYCH_5            3.524      -0.611       1.000    3.60%       3.000      3.000      4.000
+            7136.000       0.980      -0.077       5.000   13.05%       4.000      4.000
+     WB_PSYCH_6            3.307      -0.457       1.000    4.04%       2.000      3.000      3.000
+            7136.000       0.937      -0.366       5.000    6.89%       4.000      4.000
+     WB_SOC_1              3.606      -0.625       1.000    3.85%       3.000      4.000      4.000
+            7136.000       1.093      -0.193       5.000   18.69%       4.000      4.000
+     WB_SOC_2              3.685      -0.656       1.000    3.62%       3.000      4.000      4.000
+            7136.000       1.041       0.039       5.000   21.58%       4.000      5.000
+     WB_SOC_3              3.352      -0.350       1.000    8.28%       2.000      3.000      3.000
+            7136.000       1.394      -0.715       5.000   17.45%       4.000      4.046
+     AGE                  33.698       1.184       0.000    0.03%      23.000     26.000     29.000
+            7136.000     186.577       0.755      86.000    0.01%      33.000     44.000
+     GENDER                1.573      -0.295       1.000   42.71%       1.000      1.000      2.000
+            7136.000       0.245      -1.913       2.000   57.29%       2.000      2.000
+     SES                   6.081      -0.427       1.000    1.15%       5.000      6.000      6.000
+            7136.000       3.100       0.078      10.000    1.68%       7.000      8.000
+     EDUCATION             4.646      -0.041       1.000    0.76%       4.000      4.000      5.000
+            7136.000       1.571      -0.207       7.000    8.72%       5.000      6.000
+     MAJORITY              0.873      -2.254       0.000   12.58%       1.000      1.000      1.000
+            7136.000       0.110       3.085       1.000   83.35%       1.000      1.000
+
+     THE ESTIMATED BETWEEN COVARIANCE MATRIX COULD NOT BE INVERTED.
+     COMPUTATION COULD NOT BE COMPLETED IN ITERATION 26.
+     CHANGE YOUR MODEL AND/OR STARTING VALUES.
+
+
+
+     THE MODEL ESTIMATION DID NOT TERMINATE NORMALLY DUE TO AN ERROR IN THE
+     COMPUTATION.  CHANGE YOUR MODEL AND/OR STARTING VALUES.
+
+
+
+
+
+
+MODEL RESULTS
+
+                    Estimate
+
+Within Level
+
+ REL      BY
+    REL_1              1.000
+    REL_2              1.408
+    REL_5              1.080
+    REL_6              1.590
+    REL_7              1.298
+    REL_8              1.208
+    REL_9              1.589
+
+ CNORM    BY
+    CNORM_1            1.000
+    CNORM_2            1.420
+
+ WELL     BY
+    WB_PHYS_1          1.000
+    WB_PHYS_2          0.899
+    WB_PHYS_3          3.192
+    WB_PHYS_4          2.076
+    WB_PHYS_5          2.580
+    WB_PHYS_6          3.228
+    WB_PHYS_7          3.300
+    WB_PSYCH_1         3.068
+    WB_PSYCH_2         3.240
+    WB_PSYCH_3         2.404
+    WB_PSYCH_4         3.183
+    WB_PSYCH_5         3.699
+    WB_PSYCH_6         2.407
+    WB_SOC_1           3.150
+    WB_SOC_2           2.443
+    WB_SOC_3           2.614
+
+ WELL       ON
+    AGE                0.001
+    GENDER            -0.002
+    SES                0.051
+    EDUCATION          0.008
+    MAJORITY           0.007
+
+ CNORM    WITH
+    REL                0.021
+
+ Intercepts
+    REL_1              0.283
+    REL_2              0.339
+    REL_5              0.462
+    REL_6              0.496
+    REL_7              0.488
+    REL_8              0.278
+    REL_9              0.380
+    CNORM_1            0.389
+    CNORM_2            0.466
+    WB_PHYS_1          3.598
+    WB_PHYS_2          3.833
+    WB_PHYS_3          2.375
+    WB_PHYS_4          3.486
+    WB_PHYS_5          2.370
+    WB_PHYS_6          2.470
+    WB_PHYS_7          2.369
+    WB_PSYCH_1         2.375
+    WB_PSYCH_2         2.240
+    WB_PSYCH_3         2.578
+    WB_PSYCH_4         2.314
+    WB_PSYCH_5         2.075
+    WB_PSYCH_6         2.364
+    WB_SOC_1           2.372
+    WB_SOC_2           2.728
+    WB_SOC_3           2.328
+
+ Variances
+    REL                0.048
+    CNORM              0.019
+
+ Residual Variances
+    REL_1              0.050
+    REL_2              0.043
+    REL_5              0.057
+    REL_6              0.029
+    REL_7              0.063
+    REL_8              0.033
+    REL_9              0.021
+    CNORM_1            0.046
+    CNORM_2            0.051
+    WB_PHYS_1          1.101
+    WB_PHYS_2          1.164
+    WB_PHYS_3          0.451
+    WB_PHYS_4          0.566
+    WB_PHYS_5          0.875
+    WB_PHYS_6          0.447
+    WB_PHYS_7          0.549
+    WB_PSYCH_1         0.381
+    WB_PSYCH_2         0.678
+    WB_PSYCH_3         0.545
+    WB_PSYCH_4         0.715
+    WB_PSYCH_5         0.334
+    WB_PSYCH_6         0.664
+    WB_SOC_1           0.625
+    WB_SOC_2           0.760
+    WB_SOC_3           1.072
+    WELL               0.036
+
+Between Level
+
+ Means
+    SRELI              0.091
+    SNORM              0.109
+    SINT               0.477
+
+ Variances
+    SRELI              0.000
+    SNORM              0.032
+    SINT               0.042
+
+
+MODEL COMMAND WITH FINAL ESTIMATES USED AS STARTING VALUES
+
+     %WITHIN%
+
+     int | rel XWITH cnorm;
+     sreli | well ON rel;
+     snorm | well ON cnorm;
+     sint | well ON int;
+
+     rel BY rel_1@1;
+     rel BY rel_2*1.40786;
+     rel BY rel_5*1.07952;
+     rel BY rel_6*1.58972;
+     rel BY rel_7*1.29761;
+     rel BY rel_8*1.20758;
+     rel BY rel_9*1.58908;
+     cnorm BY cnorm_1@1;
+     cnorm BY cnorm_2*1.41963;
+     well BY wb_phys_1@1;
+     well BY wb_phys_2*0.89891;
+     well BY wb_phys_3*3.19161;
+     well BY wb_phys_4*2.07612;
+     well BY wb_phys_5*2.58030;
+     well BY wb_phys_6*3.22787;
+     well BY wb_phys_7*3.30046;
+     well BY wb_psych_1*3.06780;
+     well BY wb_psych_2*3.23966;
+     well BY wb_psych_3*2.40365;
+     well BY wb_psych_4*3.18300;
+     well BY wb_psych_5*3.69856;
+     well BY wb_psych_6*2.40711;
+     well BY wb_soc_1*3.14996;
+     well BY wb_soc_2*2.44300;
+     well BY wb_soc_3*2.61401;
+
+     well ON age*0.00116;
+     well ON gender*-0.00230;
+     well ON ses*0.05051;
+     well ON education*0.00839;
+     well ON majority*0.00718;
+
+     cnorm WITH rel*0.02106;
+
+     [ rel_1*0.28298 ];
+     [ rel_2*0.33899 ];
+     [ rel_5*0.46246 ];
+     [ rel_6*0.49626 ];
+     [ rel_7*0.48805 ];
+     [ rel_8*0.27802 ];
+     [ rel_9*0.38014 ];
+     [ cnorm_1*0.38868 ];
+     [ cnorm_2*0.46603 ];
+     [ wb_phys_1*3.59755 ];
+     [ wb_phys_2*3.83264 ];
+     [ wb_phys_3*2.37480 ];
+     [ wb_phys_4*3.48646 ];
+     [ wb_phys_5*2.36992 ];
+     [ wb_phys_6*2.47018 ];
+     [ wb_phys_7*2.36915 ];
+     [ wb_psych_1*2.37454 ];
+     [ wb_psych_2*2.23980 ];
+     [ wb_psych_3*2.57828 ];
+     [ wb_psych_4*2.31427 ];
+     [ wb_psych_5*2.07458 ];
+     [ wb_psych_6*2.36434 ];
+     [ wb_soc_1*2.37206 ];
+     [ wb_soc_2*2.72752 ];
+     [ wb_soc_3*2.32782 ];
+
+     rel_1*0.05050;
+     rel_2*0.04340;
+     rel_5*0.05669;
+     rel_6*0.02904;
+     rel_7*0.06262;
+     rel_8*0.03253;
+     rel_9*0.02135;
+     cnorm_1*0.04603;
+     cnorm_2*0.05138;
+     wb_phys_1*1.10136;
+     wb_phys_2*1.16441;
+     wb_phys_3*0.45086;
+     wb_phys_4*0.56578;
+     wb_phys_5*0.87496;
+     wb_phys_6*0.44666;
+     wb_phys_7*0.54927;
+     wb_psych_1*0.38066;
+     wb_psych_2*0.67779;
+     wb_psych_3*0.54547;
+     wb_psych_4*0.71453;
+     wb_psych_5*0.33431;
+     wb_psych_6*0.66356;
+     wb_soc_1*0.62468;
+     wb_soc_2*0.75977;
+     wb_soc_3*1.07173;
+     rel*0.04760;
+     cnorm*0.01904;
+     well*0.03617;
+
+     %BETWEEN%
+
+     [ sreli*0.09050 ];
+     [ snorm*0.10863 ];
+     [ sint*0.47706 ];
+
+     sreli*0.00000;
+     snorm*0.03162;
+     sint*0.04168;
+
+
+
+DIAGRAM INFORMATION
+
+  Mplus diagrams are currently not available for multilevel analysis.
+  No diagram output was produced.
+
+
+     Beginning Time:  09:50:04
+        Ending Time:  10:00:09
+       Elapsed Time:  00:10:05
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2019 Muthen & Muthen

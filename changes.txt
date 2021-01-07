@@ -1,0 +1,7 @@
+* Misinterpreted comment about missing values in data documentation
+* Accidentally put both the original variable ethicity and the derived variable "majority" in the analysis; removed these
+* Tried using ESTIMATOR = BAYES for main models because integration did not converge
+* Removed categorical items, because no DIC is available for cat outcomes http://www.statmodel.com/discussion/messages/9/6256.html?1600907976
+* DIC is not available for latent variable interactions, thus it is not possible to determine best fitting model according to preregistration
+* Decided to conduct path analysis with mean score scales of the observed variables to determine best fitting model, then revert back to Bayes for estimation of the final model
+* Final model does not converge with Bayes; decided to use path analysis with mean scores for all analyses

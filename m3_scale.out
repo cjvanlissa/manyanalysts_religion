@@ -1,0 +1,335 @@
+Mplus VERSION 8.3
+MUTHEN & MUTHEN
+01/06/2021  10:40 AM
+
+INPUT INSTRUCTIONS
+
+  TITLE:
+  M3_scale
+  DATA:
+  FILE = "m3_scale_2728186eb033b550577f0692de9f12af.dat";
+
+  VARIABLE:
+  NAMES = country age gender ses education majority rel cnorm well int;
+   MISSING=.;
+   WITHIN = age gender ses education majority
+  rel
+  cnorm
+  int;
+  CLUSTER IS country;
+  ANALYSIS:
+  TYPE = TWOLEVEL RANDOM;
+  MODEL:
+  %WITHIN%
+  sreli | well ON rel;
+  snorm | well ON cnorm;
+  sint | well ON int;
+  well ON age;
+  well ON gender;
+  well ON ses;
+  well ON education;
+  well ON majority;
+  %BETWEEN%
+  [well];
+  [sreli];
+  [snorm];
+  [sint];
+  sreli;
+  snorm;
+  sint;
+  OUTPUT:
+  TECH3;
+
+
+
+*** WARNING in VARIABLE command
+  Note that only the first 8 characters of variable names are used in the output.
+  Shorten variable names to avoid any confusion.
+   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+M3_scale
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        7136
+
+Number of dependent variables                                    1
+Number of independent variables                                  8
+Number of continuous latent variables                            3
+
+Observed dependent variables
+
+  Continuous
+   WELL
+
+Observed independent variables
+   AGE         GENDER      SES         EDUCATIO    MAJORITY    REL
+   CNORM       INT
+
+Continuous latent variables
+   SRELI       SNORM       SINT
+
+Variables with special functions
+
+  Cluster variable      COUNTRY
+
+  Within variables
+   AGE         GENDER      SES         EDUCATIO    MAJORITY    REL
+   CNORM       INT
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                                500
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  m3_scale_2728186eb033b550577f0692de9f12af.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             1
+     Number of clusters                         24
+
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              WELL          AGE           GENDER        SES           EDUCATIO
+              ________      ________      ________      ________      ________
+ WELL           1.000
+ AGE            1.000         1.000
+ GENDER         1.000         1.000         1.000
+ SES            1.000         1.000         1.000         1.000
+ EDUCATIO       1.000         1.000         1.000         1.000         1.000
+ MAJORITY       1.000         1.000         1.000         1.000         1.000
+ REL            1.000         1.000         1.000         1.000         1.000
+ CNORM          1.000         1.000         1.000         1.000         1.000
+ INT            1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              MAJORITY      REL           CNORM         INT
+              ________      ________      ________      ________
+ MAJORITY       1.000
+ REL            1.000         1.000
+ CNORM          1.000         1.000         1.000
+ INT            1.000         1.000         1.000         1.000
+
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     WELL                  0.000      -0.641      -2.549    0.03%      -0.549     -0.049      0.076
+            7136.000       0.426       0.204       1.389    0.15%       0.264      0.576
+     AGE                  33.698       1.184       0.000    0.03%      23.000     26.000     29.000
+            7136.000     186.577       0.755      86.000    0.01%      33.000     44.000
+     GENDER                1.573      -0.295       1.000   42.71%       1.000      1.000      2.000
+            7136.000       0.245      -1.913       2.000   57.29%       2.000      2.000
+     SES                   6.081      -0.427       1.000    1.15%       5.000      6.000      6.000
+            7136.000       3.100       0.078      10.000    1.68%       7.000      8.000
+     EDUCATION             4.646      -0.041       1.000    0.76%       4.000      4.000      5.000
+            7136.000       1.571      -0.207       7.000    8.72%       5.000      6.000
+     MAJORITY              0.873      -2.254       0.000   12.58%       1.000      1.000      1.000
+            7136.000       0.110       3.085       1.000   83.35%       1.000      1.000
+     REL                   0.000       0.476      -0.364   10.09%      -0.293     -0.162     -0.067
+            7136.000       0.090      -1.054       0.636    0.88%       0.051      0.318
+     CNORM                 0.000       0.254      -0.413   12.33%      -0.163     -0.163     -0.038
+            7136.000       0.070      -0.632       0.587    3.49%       0.087      0.212
+     INT                   0.033       0.978      -0.253    0.04%      -0.022      0.007      0.017
+            7136.000       0.008       2.660       0.374    0.46%       0.036      0.088
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       14
+
+Loglikelihood
+
+          H0 Value                       -6016.046
+          H0 Scaling Correction Factor      2.0036
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   12060.091
+          Bayesian (BIC)                 12156.312
+          Sample-Size Adjusted BIC       12111.823
+            (n* = (n + 2) / 24)
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Within Level
+
+ WELL       ON
+    AGE                0.003      0.001      3.279      0.001
+    GENDER            -0.007      0.018     -0.376      0.707
+    SES                0.137      0.011     12.082      0.000
+    EDUCATION          0.031      0.007      4.408      0.000
+    MAJORITY           0.027      0.023      1.167      0.243
+
+ Residual Variances
+    WELL               0.312      0.012     26.335      0.000
+
+Between Level
+
+ Means
+    WELL              -1.114      0.101    -10.998      0.000
+    SRELI              0.258      0.026      9.804      0.000
+    SNORM              0.105      0.043      2.457      0.014
+    SINT               0.262      0.137      1.915      0.055
+
+ Variances
+    WELL               0.020      0.010      2.091      0.037
+    SRELI              0.001      0.006      0.089      0.929
+    SNORM              0.021      0.011      1.935      0.053
+    SINT               0.045      0.095      0.472      0.637
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.812E-05
+       (ratio of smallest to largest eigenvalue)
+
+
+TECHNICAL 3 OUTPUT
+
+
+           ESTIMATED COVARIANCE MATRIX FOR PARAMETER ESTIMATES
+                     1             2             3             4             5
+              ________      ________      ________      ________      ________
+        1   0.751207D-06
+        2   0.699359D-06  0.331080D-03
+        3   0.229077D-05  0.109270D-03  0.128664D-03
+        4  -0.562777D-06  0.381864D-05 -0.333671D-04  0.478814D-04
+        5  -0.420686D-05 -0.715477D-04 -0.699063D-04 -0.115958D-04  0.529197D-03
+        6   0.604260D-05 -0.126951D-04  0.471252D-04 -0.238592D-04 -0.902925D-04
+        7   0.672415D-05 -0.652448D-04  0.105963D-04 -0.728008D-04  0.168623D-04
+        8   0.130393D-04  0.206130D-03  0.388210D-04  0.257431D-04  0.916788D-04
+        9  -0.852472D-05  0.157453D-03 -0.552714D-03  0.482801D-03 -0.154719D-03
+       10  -0.388920D-04 -0.129189D-02 -0.915059D-03  0.172899D-04  0.340729D-03
+       11  -0.385702D-06  0.164802D-04  0.274615D-04 -0.242528D-04  0.187279D-04
+       12   0.149559D-05 -0.141313D-04 -0.740357D-05 -0.222484D-04  0.191272D-04
+       13  -0.171602D-04  0.165164D-03 -0.318058D-04  0.686758D-04  0.656987D-03
+       14  -0.100409D-05  0.583573D-04  0.559894D-04 -0.113006D-04 -0.238036D-04
+
+
+           ESTIMATED COVARIANCE MATRIX FOR PARAMETER ESTIMATES
+                     6             7             8             9            10
+              ________      ________      ________      ________      ________
+        6   0.140384D-03
+        7   0.118478D-03  0.689942D-03
+        8   0.531138D-04  0.575926D-04  0.181392D-02
+        9  -0.421872D-03 -0.129685D-02  0.485730D-03  0.187599D-01
+       10  -0.358953D-03 -0.218512D-03 -0.152274D-02  0.230472D-02  0.102585D-01
+       11   0.954561D-06  0.578226D-04 -0.731121D-04 -0.691414D-03 -0.140601D-03
+       12  -0.782622D-05  0.842138D-04 -0.133681D-04  0.160645D-04  0.103994D-03
+       13  -0.207898D-03 -0.992119D-04 -0.145952D-04 -0.709997D-02 -0.102712D-02
+       14  -0.103673D-05  0.634527D-04  0.625122D-04 -0.395248D-03 -0.523929D-03
+
+
+           ESTIMATED COVARIANCE MATRIX FOR PARAMETER ESTIMATES
+                    11            12            13            14
+              ________      ________      ________      ________
+       11   0.396321D-04
+       12   0.189404D-04  0.114650D-03
+       13   0.260087D-03 -0.170144D-03  0.898249D-02
+       14   0.213982D-04 -0.203153D-04  0.264163D-03  0.919032D-04
+
+
+           ESTIMATED CORRELATION MATRIX FOR PARAMETER ESTIMATES
+                     1             2             3             4             5
+              ________      ________      ________      ________      ________
+        1       1.000
+        2       0.044         1.000
+        3       0.233         0.529         1.000
+        4      -0.094         0.030        -0.425         1.000
+        5      -0.211        -0.171        -0.268        -0.073         1.000
+        6       0.588        -0.059         0.351        -0.291        -0.331
+        7       0.295        -0.137         0.036        -0.401         0.028
+        8       0.353         0.266         0.080         0.087         0.094
+        9      -0.072         0.063        -0.356         0.509        -0.049
+       10      -0.443        -0.701        -0.796         0.025         0.146
+       11      -0.071         0.144         0.385        -0.557         0.129
+       12       0.161        -0.073        -0.061        -0.300         0.078
+       13      -0.209         0.096        -0.030         0.105         0.301
+       14      -0.121         0.335         0.515        -0.170        -0.108
+
+
+           ESTIMATED CORRELATION MATRIX FOR PARAMETER ESTIMATES
+                     6             7             8             9            10
+              ________      ________      ________      ________      ________
+        6       1.000
+        7       0.381         1.000
+        8       0.105         0.051         1.000
+        9      -0.260        -0.360         0.083         1.000
+       10      -0.299        -0.082        -0.353         0.166         1.000
+       11       0.013         0.350        -0.273        -0.802        -0.221
+       12      -0.062         0.299        -0.029         0.011         0.096
+       13      -0.185        -0.040        -0.004        -0.547        -0.107
+       14      -0.009         0.252         0.153        -0.301        -0.540
+
+
+           ESTIMATED CORRELATION MATRIX FOR PARAMETER ESTIMATES
+                    11            12            13            14
+              ________      ________      ________      ________
+       11       1.000
+       12       0.281         1.000
+       13       0.436        -0.168         1.000
+       14       0.355        -0.198         0.291         1.000
+
+
+     Beginning Time:  10:40:46
+        Ending Time:  10:40:48
+       Elapsed Time:  00:00:02
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2019 Muthen & Muthen

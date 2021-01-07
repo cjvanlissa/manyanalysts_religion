@@ -1,0 +1,22 @@
+TITLE:
+M1_scale_test
+DATA:
+FILE = "m1_scale_test_f83af6602ff4e951afc39eb6578a3881.dat";
+ 
+VARIABLE:
+NAMES = country age gender ses education majority well; 
+ MISSING=.;
+ WITHIN = age gender ses education majority
+;
+CLUSTER IS country;
+ANALYSIS:
+TYPE = TWOLEVEL RANDOM;
+MODEL:
+%WITHIN%
+well ON age;
+well ON gender;
+well ON ses;
+well ON education;
+well ON majority;
+%BETWEEN%
+[well];

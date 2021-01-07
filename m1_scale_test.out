@@ -1,0 +1,265 @@
+Mplus VERSION 8.3
+MUTHEN & MUTHEN
+01/06/2021  10:45 AM
+
+INPUT INSTRUCTIONS
+
+  TITLE:
+  M1_scale_test
+  DATA:
+  FILE = "m1_scale_test_f83af6602ff4e951afc39eb6578a3881.dat";
+
+  VARIABLE:
+  NAMES = country age gender ses education majority well;
+   MISSING=.;
+   WITHIN = age gender ses education majority
+  ;
+  CLUSTER IS country;
+  ANALYSIS:
+  TYPE = TWOLEVEL RANDOM;
+  MODEL:
+  %WITHIN%
+  well ON age;
+  well ON gender;
+  well ON ses;
+  well ON education;
+  well ON majority;
+  %BETWEEN%
+  [well];
+
+
+
+*** WARNING in VARIABLE command
+  Note that only the first 8 characters of variable names are used in the output.
+  Shorten variable names to avoid any confusion.
+*** WARNING
+  One or more individual-level variables have no variation within a
+  cluster for the following clusters.
+
+     Variable   Cluster IDs with no within-cluster variation
+
+      MAJORITY    16 7 14
+
+   2 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+M1_scale_test
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                        3059
+
+Number of dependent variables                                    1
+Number of independent variables                                  5
+Number of continuous latent variables                            0
+
+Observed dependent variables
+
+  Continuous
+   WELL
+
+Observed independent variables
+   AGE         GENDER      SES         EDUCATIO    MAJORITY
+
+Variables with special functions
+
+  Cluster variable      COUNTRY
+
+  Within variables
+   AGE         GENDER      SES         EDUCATIO    MAJORITY
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                                500
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  m1_scale_test_f83af6602ff4e951afc39eb6578a3881.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             1
+     Number of clusters                         24
+
+     Average cluster size      127.458
+
+     Estimated Intraclass Correlations for the Y Variables
+
+                Intraclass
+     Variable  Correlation
+
+     WELL         0.052
+
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              WELL          AGE           GENDER        SES           EDUCATIO
+              ________      ________      ________      ________      ________
+ WELL           1.000
+ AGE            1.000         1.000
+ GENDER         1.000         1.000         1.000
+ SES            1.000         1.000         1.000         1.000
+ EDUCATIO       1.000         1.000         1.000         1.000         1.000
+ MAJORITY       1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              MAJORITY
+              ________
+ MAJORITY       1.000
+
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     WELL                  0.000      -0.644      -2.440    0.07%      -0.502     -0.065      0.060
+            3059.000       0.410       0.283       1.373    0.07%       0.248      0.560
+     AGE                  33.909       1.169       3.000    0.03%      22.000     26.000     29.000
+            3059.000     200.530       0.589      90.000    0.03%      33.000     45.000
+     GENDER                1.542      -0.167       1.000   45.83%       1.000      1.000      2.000
+            3059.000       0.248      -1.972       2.000   54.17%       2.000      2.000
+     SES                   6.140      -0.449       1.000    1.27%       5.000      6.000      6.000
+            3059.000       3.186       0.071      10.000    1.67%       7.000      8.000
+     EDUCATION             4.629      -0.002       1.000    0.82%       4.000      4.000      5.000
+            3059.000       1.623      -0.266       7.000    9.28%       5.000      6.000
+     MAJORITY              0.875      -2.278       0.000   12.42%       1.000      1.000      1.000
+            3059.000       0.109       3.190       1.000   83.92%       1.000      1.000
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                        8
+
+Loglikelihood
+
+          H0 Value                       -2568.045
+          H0 Scaling Correction Factor      2.0353
+            for MLR
+          H1 Value                       -2568.045
+          H1 Scaling Correction Factor      2.0353
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                    5152.090
+          Bayesian (BIC)                  5200.297
+          Sample-Size Adjusted BIC        5174.878
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit
+
+          Value                              0.000*
+          Degrees of Freedom                     0
+          P-Value                           1.0000
+          Scaling Correction Factor         1.0000
+            for MLR
+
+*   The chi-square value for MLM, MLMV, MLR, ULSMV, WLSM and WLSMV cannot be used
+    for chi-square difference testing in the regular way.  MLM, MLR and WLSM
+    chi-square difference testing is described on the Mplus website.  MLMV, WLSMV,
+    and ULSMV difference testing is done using the DIFFTEST option.
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.000
+
+CFI/TLI
+
+          CFI                                1.000
+          TLI                                1.000
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                            345.050
+          Degrees of Freedom                     5
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value for Within                   0.000
+          Value for Between                  0.000
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Within Level
+
+ WELL       ON
+    AGE                0.001      0.001      1.456      0.145
+    GENDER            -0.046      0.031     -1.502      0.133
+    SES                0.139      0.013     10.951      0.000
+    EDUCATION          0.037      0.010      3.665      0.000
+    MAJORITY           0.037      0.041      0.912      0.362
+
+ Residual Variances
+    WELL               0.308      0.013     22.981      0.000
+
+Between Level
+
+ Means
+    WELL              -1.044      0.108     -9.663      0.000
+
+ Variances
+    WELL               0.021      0.009      2.207      0.027
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.113E-02
+       (ratio of smallest to largest eigenvalue)
+
+
+     Beginning Time:  10:45:21
+        Ending Time:  10:45:21
+       Elapsed Time:  00:00:00
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2019 Muthen & Muthen

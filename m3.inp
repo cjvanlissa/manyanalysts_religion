@@ -1,0 +1,49 @@
+TITLE:
+M3
+DATA:
+FILE = "m1_b1f90dcea85f1b799ee243513f108fb2.dat";
+ 
+VARIABLE:
+NAMES = country rel_1 rel_2 rel_5 rel_6 rel_7 rel_8 rel_9 cnorm_1 cnorm_2 wb_phys_1
+     wb_phys_2 wb_phys_3 wb_phys_4 wb_phys_5 wb_phys_6 wb_phys_7 wb_psych_1
+     wb_psych_2 wb_psych_3 wb_psych_4 wb_psych_5 wb_psych_6 wb_soc_1 wb_soc_2
+     wb_soc_3 age gender ses education majority; 
+ MISSING=.;
+ WITHIN = age gender ses education majority
+rel_1-rel_2
+rel_5-rel_9
+cnorm_1-cnorm_2
+wb_phys_1-wb_phys_7
+wb_psych_1-wb_psych_6
+wb_soc_1-wb_soc_3;
+CLUSTER IS country;
+ANALYSIS:
+TYPE = TWOLEVEL RANDOM;
+ALGORITHM = INTEGRATION;
+INTEGRATION=MONTECARLO (500);
+MODEL:
+%WITHIN%
+rel BY rel_1-rel_2;
+rel BY rel_5-rel_9;
+cnorm BY cnorm_1-cnorm_2;
+well BY wb_phys_1-wb_phys_7;
+well BY wb_psych_1-wb_psych_6;
+well BY wb_soc_1-wb_soc_3;
+int | rel XWITH cnorm;
+sreli | well ON rel;
+snorm | well ON cnorm;
+sint | well ON int;
+well ON age;
+well ON gender;
+well ON ses;
+well ON education;
+well ON majority;
+%BETWEEN%
+[sreli];
+[snorm];
+[sint];
+sreli;
+snorm;
+sint;
+OUTPUT:
+TECH3 TECH10;

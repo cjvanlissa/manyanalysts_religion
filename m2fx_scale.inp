@@ -1,0 +1,28 @@
+TITLE:
+M2fx_scale
+DATA:
+FILE = "m2_scale_2e2437c18a98deb9361ae53275a222d8.dat";
+ 
+VARIABLE:
+NAMES = country age gender ses education majority rel cnorm well; 
+ MISSING=.;
+ WITHIN = age gender ses education majority
+rel
+cnorm
+;
+CLUSTER IS country;
+ANALYSIS:
+TYPE = TWOLEVEL RANDOM;
+MODEL:
+%WITHIN%
+sreli | well ON rel;
+snorm | well ON cnorm;
+well ON age;
+well ON gender;
+well ON ses;
+well ON education;
+well ON majority;
+%BETWEEN%
+[well];
+sreli@0;
+snorm@0;

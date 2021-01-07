@@ -1,0 +1,246 @@
+Mplus VERSION 8.3
+MUTHEN & MUTHEN
+01/06/2021  11:28 AM
+
+INPUT INSTRUCTIONS
+
+  TITLE:
+  M3fx_final
+  DATA:
+  FILE = "m3fx_finalsens_8528398926a47c84a09f0535e72b4aaf.dat";
+
+  VARIABLE:
+  NAMES = country age gender ses education majority rel cnorm well int;
+   MISSING=.;
+   WITHIN = age gender ses education majority
+  rel
+  cnorm
+  int;
+  CLUSTER IS country;
+  ANALYSIS:
+  TYPE = TWOLEVEL RANDOM;
+  MODEL:
+  %WITHIN%
+  sreli | well ON rel;
+  snorm | well ON cnorm;
+  sint | well ON int;
+  well ON age;
+  well ON gender;
+  well ON ses;
+  well ON education;
+  well ON majority;
+  %BETWEEN%
+  [well];
+  [sreli];
+  [snorm];
+  [sint];
+  sreli@0;
+  snorm@0;
+  sint@0;
+
+
+
+*** WARNING in VARIABLE command
+  Note that only the first 8 characters of variable names are used in the output.
+  Shorten variable names to avoid any confusion.
+   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+M3fx_final
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                       10535
+
+Number of dependent variables                                    1
+Number of independent variables                                  8
+Number of continuous latent variables                            3
+
+Observed dependent variables
+
+  Continuous
+   WELL
+
+Observed independent variables
+   AGE         GENDER      SES         EDUCATIO    MAJORITY    REL
+   CNORM       INT
+
+Continuous latent variables
+   SRELI       SNORM       SINT
+
+Variables with special functions
+
+  Cluster variable      COUNTRY
+
+  Within variables
+   AGE         GENDER      SES         EDUCATIO    MAJORITY    REL
+   CNORM       INT
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                                500
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  m3fx_finalsens_8528398926a47c84a09f0535e72b4aaf.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             1
+     Number of clusters                         24
+
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              WELL          AGE           GENDER        SES           EDUCATIO
+              ________      ________      ________      ________      ________
+ WELL           1.000
+ AGE            1.000         1.000
+ GENDER         1.000         1.000         1.000
+ SES            1.000         1.000         1.000         1.000
+ EDUCATIO       1.000         1.000         1.000         1.000         1.000
+ MAJORITY       1.000         1.000         1.000         1.000         1.000
+ REL            1.000         1.000         1.000         1.000         1.000
+ CNORM          1.000         1.000         1.000         1.000         1.000
+ INT            1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              MAJORITY      REL           CNORM         INT
+              ________      ________      ________      ________
+ MAJORITY       1.000
+ REL            1.000         1.000
+ CNORM          1.000         1.000         1.000
+ INT            1.000         1.000         1.000         1.000
+
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     WELL                  0.000      -0.641      -2.554    0.02%      -0.554     -0.054      0.071
+           10535.000       0.419       0.238       1.383    0.12%       0.258      0.571
+     AGE                  33.835       1.178       0.000    0.02%      22.000     26.000     29.000
+           10535.000     192.771       0.703      90.000    0.01%      33.000     45.000
+     GENDER                1.559      -0.236       1.000   44.14%       1.000      1.000      2.000
+           10535.000       0.247      -1.944       2.000   55.86%       2.000      2.000
+     SES                   6.106      -0.430       1.000    1.26%       5.000      6.000      6.000
+           10535.000       3.158       0.089      10.000    1.79%       7.000      8.000
+     EDUCATION             4.640      -0.036       1.000    0.81%       4.000      4.000      5.000
+           10535.000       1.595      -0.216       7.000    8.95%       5.000      6.000
+     MAJORITY              0.870      -2.217       0.000   12.86%       1.000      1.000      1.000
+           10535.000       0.112       2.919       1.000   83.26%       1.000      1.000
+     REL                   0.000       0.441      -0.372    9.85%      -0.300     -0.158     -0.066
+           10535.000       0.091      -1.097       0.628    0.95%       0.057      0.322
+     CNORM                 0.000       0.241      -0.420   11.59%      -0.170     -0.045     -0.045
+           10535.000       0.070      -0.635       0.580    3.75%       0.080      0.205
+     INT                   0.035       0.943      -0.264    0.01%      -0.022      0.008      0.017
+           10535.000       0.008       2.361       0.364    0.48%       0.037      0.089
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       11
+
+Loglikelihood
+
+          H0 Value                       -8809.735
+          H0 Scaling Correction Factor      2.9507
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   17641.469
+          Bayesian (BIC)                 17721.356
+          Sample-Size Adjusted BIC       17686.400
+            (n* = (n + 2) / 24)
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Within Level
+
+ WELL       ON
+    AGE                0.002      0.001      3.170      0.002
+    GENDER            -0.015      0.019     -0.800      0.424
+    SES                0.134      0.010     12.945      0.000
+    EDUCATION          0.034      0.005      7.408      0.000
+    MAJORITY           0.045      0.018      2.468      0.014
+
+ Residual Variances
+    WELL               0.309      0.011     26.939      0.000
+
+Between Level
+
+ Means
+    WELL              -1.106      0.093    -11.914      0.000
+    SRELI              0.246      0.023     10.825      0.000
+    SNORM              0.089      0.035      2.547      0.011
+    SINT               0.437      0.088      4.946      0.000
+
+ Variances
+    WELL               0.020      0.010      2.012      0.044
+    SRELI              0.000      0.000    999.000    999.000
+    SNORM              0.000      0.000    999.000    999.000
+    SINT               0.000      0.000    999.000    999.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.114E-03
+       (ratio of smallest to largest eigenvalue)
+
+
+     Beginning Time:  11:28:37
+        Ending Time:  11:28:39
+       Elapsed Time:  00:00:02
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2019 Muthen & Muthen

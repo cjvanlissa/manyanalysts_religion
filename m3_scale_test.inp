@@ -1,0 +1,35 @@
+TITLE:
+M3_scale_test
+DATA:
+FILE = "m3_scale_test_9f6fd9f82345b5e02e240ad70f9a06ca.dat";
+ 
+VARIABLE:
+NAMES = country age gender ses education majority rel cnorm well int; 
+ MISSING=.;
+ WITHIN = age gender ses education majority
+rel
+cnorm
+int;
+CLUSTER IS country;
+ANALYSIS:
+TYPE = TWOLEVEL RANDOM;
+MODEL:
+%WITHIN%
+sreli | well ON rel;
+snorm | well ON cnorm;
+sint | well ON int;
+well ON age;
+well ON gender;
+well ON ses;
+well ON education;
+well ON majority;
+%BETWEEN%
+[well];
+[sreli];
+[snorm];
+[sint];
+sreli;
+snorm;
+sint;
+OUTPUT:
+TECH3;

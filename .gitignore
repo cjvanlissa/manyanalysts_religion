@@ -14,3 +14,5 @@
 df.csv
 !synthetic_df.csv
 !codebook_df.csv
+*.RData
+*.dat
