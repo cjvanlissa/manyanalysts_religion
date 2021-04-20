@@ -67,6 +67,7 @@ imp_fun <- function(x){
     out
   }
 }
+open_data(df)
 closed_data(df, model_expression = NULL,
             predict_expression = sample(y, size = length(y), replace = TRUE),
             missingness_expression = imp_fun(data))

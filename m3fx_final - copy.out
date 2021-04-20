@@ -1,0 +1,272 @@
+Mplus VERSION 8.3
+MUTHEN & MUTHEN
+01/12/2021   3:27 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE:
+  M3fx_final
+  DATA:
+  FILE = "m3fx_final_1fdbb9802dd095090fc2f2b9b921e900.dat";
+
+  VARIABLE:
+  NAMES = country age gender ses education majority rel cnorm well int;
+  USEVARIABLES =
+  country age gender ses education majority rel cnorm well int rel2;
+   MISSING=.;
+   WITHIN = age gender ses education majority
+  rel
+  rel2
+  cnorm
+  int;
+  CLUSTER IS country;
+  DEFINE:
+  rel2 = rel*rel;
+  ANALYSIS:
+  TYPE = TWOLEVEL RANDOM;
+  MODEL:
+  %WITHIN%
+  sreli | well ON rel;
+  sreli2 | well ON rel2;
+  snorm | well ON cnorm;
+  sint | well ON int;
+  well ON age;
+  well ON gender;
+  well ON ses;
+  well ON education;
+  well ON majority;
+  %BETWEEN%
+  [well];
+  [sreli];
+  [sreli2];
+  [snorm];
+  [sint];
+  sreli@0;
+  sreli2@0;
+  snorm@0;
+  sint@0;
+
+  OUTPUT:
+  standardized;
+
+
+
+*** WARNING in VARIABLE command
+  Note that only the first 8 characters of variable names are used in the output.
+  Shorten variable names to avoid any confusion.
+*** WARNING in OUTPUT command
+  STANDARDIZED (STD, STDY, STDYX) options are available only for TYPE=TWOLEVEL RANDOM
+  with ESTIMATOR=BAYES.  Request for STANDARDIZED (STD, STDY, STDYX) is ignored.
+   2 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+
+M3fx_final
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                       10195
+
+Number of dependent variables                                    1
+Number of independent variables                                  9
+Number of continuous latent variables                            4
+
+Observed dependent variables
+
+  Continuous
+   WELL
+
+Observed independent variables
+   AGE         GENDER      SES         EDUCATIO    MAJORITY    REL
+   CNORM       INT         REL2
+
+Continuous latent variables
+   SRELI       SRELI2      SNORM       SINT
+
+Variables with special functions
+
+  Cluster variable      COUNTRY
+
+  Within variables
+   AGE         GENDER      SES         EDUCATIO    MAJORITY    REL
+   CNORM       INT         REL2
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Maximum number of iterations                                   100
+Convergence criterion                                    0.100D-05
+Maximum number of EM iterations                                500
+Convergence criteria for the EM algorithm
+  Loglikelihood change                                   0.100D-02
+  Relative loglikelihood change                          0.100D-05
+  Derivative                                             0.100D-03
+Minimum variance                                         0.100D-03
+Maximum number of steepest descent iterations                   20
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+
+Input data file(s)
+  m3fx_final_1fdbb9802dd095090fc2f2b9b921e900.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             1
+     Number of clusters                         24
+
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              WELL          AGE           GENDER        SES           EDUCATIO
+              ________      ________      ________      ________      ________
+ WELL           1.000
+ AGE            1.000         1.000
+ GENDER         1.000         1.000         1.000
+ SES            1.000         1.000         1.000         1.000
+ EDUCATIO       1.000         1.000         1.000         1.000         1.000
+ MAJORITY       1.000         1.000         1.000         1.000         1.000
+ REL            1.000         1.000         1.000         1.000         1.000
+ CNORM          1.000         1.000         1.000         1.000         1.000
+ INT            1.000         1.000         1.000         1.000         1.000
+ REL2           1.000         1.000         1.000         1.000         1.000
+
+
+           Covariance Coverage
+              MAJORITY      REL           CNORM         INT           REL2
+              ________      ________      ________      ________      ________
+ MAJORITY       1.000
+ REL            1.000         1.000
+ CNORM          1.000         1.000         1.000
+ INT            1.000         1.000         1.000         1.000
+ REL2           1.000         1.000         1.000         1.000         1.000
+
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     WELL                  0.000      -0.642      -2.553    0.02%      -0.553     -0.053      0.072
+           10195.000       0.422       0.228       1.384    0.13%       0.259      0.572
+     AGE                  33.763       1.180       0.000    0.02%      22.000     26.000     29.000
+           10195.000     190.786       0.704      90.000    0.01%      33.000     44.000
+     GENDER                1.564      -0.257       1.000   43.62%       1.000      1.000      2.000
+           10195.000       0.246      -1.934       2.000   56.38%       2.000      2.000
+     SES                   6.099      -0.433       1.000    1.19%       5.000      6.000      6.000
+           10195.000       3.126       0.075      10.000    1.68%       7.000      8.000
+     EDUCATION             4.641      -0.029       1.000    0.77%       4.000      4.000      5.000
+           10195.000       1.587      -0.226       7.000    8.89%       5.000      6.000
+     MAJORITY              0.874      -2.262       0.000   12.54%       1.000      1.000      1.000
+           10195.000       0.109       3.117       1.000   83.49%       1.000      1.000
+     REL                   0.000       0.480      -0.364   10.13%      -0.293     -0.162     -0.070
+           10195.000       0.090      -1.055       0.636    0.90%       0.049      0.321
+     CNORM                 0.000       0.257      -0.414   11.92%      -0.164     -0.164     -0.039
+           10195.000       0.069      -0.606       0.586    3.50%       0.086      0.211
+     INT                   0.033       1.011      -0.263    0.01%      -0.022      0.007      0.017
+           10195.000       0.007       2.697       0.373    0.45%       0.035      0.084
+     REL2                  0.090       1.488       0.000    0.02%       0.014      0.049      0.072
+           10195.000       0.008       2.143       0.404    0.90%       0.094      0.133
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       12
+
+Loglikelihood
+
+          H0 Value                       -8520.739
+          H0 Scaling Correction Factor      2.7843
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                   17065.478
+          Bayesian (BIC)                 17152.234
+          Sample-Size Adjusted BIC       17114.100
+            (n* = (n + 2) / 24)
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Within Level
+
+ WELL       ON
+    AGE                0.002      0.001      3.081      0.002
+    GENDER            -0.014      0.019     -0.770      0.441
+    SES                0.136      0.011     12.548      0.000
+    EDUCATION          0.033      0.005      6.537      0.000
+    MAJORITY           0.037      0.020      1.869      0.062
+
+ Residual Variances
+    WELL               0.309      0.011     27.072      0.000
+
+Between Level
+
+ Means
+    WELL              -1.136      0.093    -12.214      0.000
+    SRELI              0.200      0.023      8.650      0.000
+    SRELI2             0.447      0.107      4.166      0.000
+    SNORM              0.083      0.036      2.265      0.023
+    SINT               0.259      0.097      2.663      0.008
+
+ Variances
+    WELL               0.020      0.009      2.185      0.029
+    SRELI              0.000      0.000    999.000    999.000
+    SRELI2             0.000      0.000    999.000    999.000
+    SNORM              0.000      0.000    999.000    999.000
+    SINT               0.000      0.000    999.000    999.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.106E-03
+       (ratio of smallest to largest eigenvalue)
+
+
+DIAGRAM INFORMATION
+
+  Mplus diagrams are currently not available for multilevel analysis.
+  No diagram output was produced.
+
+
+     Beginning Time:  15:27:27
+        Ending Time:  15:27:29
+       Elapsed Time:  00:00:02
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2019 Muthen & Muthen

@@ -2,7 +2,6 @@ worcs_version: 0.1.2.1
 creator: Lissa102
 data:
   df.csv:
-    synthetic: synthetic_df.csv
     codebook: codebook_df.Rmd
 checksums:
   df.csv: 948acb31bc0761dd98f9fe473eb0754e

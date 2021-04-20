@@ -11,7 +11,7 @@
 *.tex
 .Rproj.user
 *.docx
-df.csv
+!df.csv
 !synthetic_df.csv
 !codebook_df.csv
 *.RData
