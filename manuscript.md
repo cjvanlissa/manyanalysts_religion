@@ -1,12 +1,12 @@
 ManyAnalysts team 067
 ================
 Caspar J. van Lissa
-07 January, 2021
+22 January, 2022
 
 This manuscript uses the Workflow for Open Reproducible Code in Science
 (Van Lissa et al. 2020) to ensure reproducibility and transparency. All
 code <!--and data--> are available at
-www.github.com/cjvanlissa/manyanalysts\_religion.
+www.github.com/cjvanlissa/manyanalysts_religion.
 
 We set out to address these research questions:
 
@@ -50,10 +50,10 @@ For the dependent variable wellbeing, we compared a one-factor model to
 a three-factor model. We preregistered a preference for the simpler
 one-factor model if the fit of both models was approximately equal.
 
-| Model           | npar |    chisq |  df |      bic | rmsea |   cfi |   tli |
-| :-------------- | ---: | -------: | --: | -------: | ----: | ----: | ----: |
-| fit\_cfa\_well  |   32 | 8676.587 | 104 | 290938.9 | 0.107 | 0.811 | 0.781 |
-| fit\_cfa\_well3 |   35 | 4982.120 | 101 | 287271.0 | 0.082 | 0.892 | 0.872 |
+| Model         | npar |    chisq |  df |      bic | rmsea |   cfi |   tli |
+|:--------------|-----:|---------:|----:|---------:|------:|------:|------:|
+| fit_cfa_well  |   32 | 8676.587 | 104 | 290938.9 | 0.107 | 0.811 | 0.781 |
+| fit_cfa_well3 |   35 | 4982.120 | 101 | 287271.0 | 0.082 | 0.892 | 0.872 |
 
 We found that the fit of both models was unacceptable. As we also
 experienced recurrent problems with model convergence when using
@@ -96,13 +96,13 @@ indicators.
 Due to problems in model convergence when using measurement models, we
 resorted to using mean scale scores for all variables. As can be seen in
 the table below, all three scales had good-to-excellent reliability, and
-had factor loadings \(\geq .48\) on a single-factor CFA.
+had factor loadings  ≥ .48 on a single-factor CFA.
 
-| Subscale | Items |    n | mean | sd   | min  | max  | skew   | kurt   | Reliability | Interpret | min\_load | max\_load |
-| :------- | ----: | ---: | :--- | :--- | :--- | :--- | :----- | :----- | :---------- | :-------- | :-------- | :-------- |
-| rel      |     7 | 7136 | 0.36 | 0.30 | 0.00 | 1.00 | 0.48   | \-1.05 | 0.93        | Excellent | 0.71      | 0.92      |
-| cnorm    |     2 | 7136 | 0.41 | 0.26 | 0.00 | 1.00 | 0.25   | \-0.63 | 0.85(sb)    | Good      | 0.86      | 0.86      |
-| well     |    16 | 7136 | 3.61 | 0.65 | 1.06 | 5.00 | \-0.64 | 0.20   | 0.91        | Excellent | 0.48      | 0.80      |
+| Subscale | Items |    n | mean | sd   | min  | max  | skew  | kurt  | Reliability | Interpret | min_load | max_load |
+|:---------|------:|-----:|:-----|:-----|:-----|:-----|:------|:------|:------------|:----------|:---------|:---------|
+| rel      |     7 | 7136 | 0.36 | 0.30 | 0.00 | 1.00 | 0.48  | -1.05 | 0.93        | Excellent | 0.71     | 0.92     |
+| cnorm    |     2 | 7136 | 0.41 | 0.26 | 0.00 | 1.00 | 0.25  | -0.63 | 0.85(sb)    | Good      | 0.86     | 0.86     |
+| well     |    16 | 7136 | 3.61 | 0.65 | 1.06 | 5.00 | -0.64 | 0.20  | 0.91        | Excellent | 0.48     | 0.80     |
 
 # Analyses
 
@@ -148,11 +148,11 @@ validation sample were nearly identical to the training sample, which
 suggests that our decisions to drop certain items did not lead to
 overfitting (see table below).
 
-| Subscale | Items |    n | mean | sd   | min  | max  | skew   | kurt   | Reliability | Interpret | min\_load | max\_load |
-| :------- | ----: | ---: | :--- | :--- | :--- | :--- | :----- | :----- | :---------- | :-------- | :-------- | :-------- |
-| rel      |     7 | 3059 | 0.36 | 0.30 | 0.00 | 1.00 | 0.49   | \-1.06 | 0.93        | Excellent | 0.69      | 0.92      |
-| cnorm    |     2 | 3059 | 0.42 | 0.26 | 0.00 | 1.00 | 0.27   | \-0.55 | 0.85(sb)    | Good      | 0.86      | 0.86      |
-| well     |    16 | 3059 | 3.63 | 0.64 | 1.19 | 5.00 | \-0.64 | 0.28   | 0.91        | Excellent | 0.47      | 0.80      |
+| Subscale | Items |    n | mean | sd   | min  | max  | skew  | kurt  | Reliability | Interpret | min_load | max_load |
+|:---------|------:|-----:|:-----|:-----|:-----|:-----|:------|:------|:------------|:----------|:---------|:---------|
+| rel      |     7 | 3059 | 0.36 | 0.30 | 0.00 | 1.00 | 0.49  | -1.06 | 0.93        | Excellent | 0.69     | 0.92     |
+| cnorm    |     2 | 3059 | 0.42 | 0.26 | 0.00 | 1.00 | 0.27  | -0.55 | 0.85(sb)    | Good      | 0.86     | 0.86     |
+| well     |    16 | 3059 | 3.63 | 0.64 | 1.19 | 5.00 | -0.64 | 0.28  | 0.91        | Excellent | 0.47     | 0.80     |
 
 ### Model selection
 
@@ -170,13 +170,13 @@ select the more parsimoneous one.
 As can be seen in the table below, with increasing complexity, fit
 improved significantly until model M3 free.
 
-|   | Title    | Parameters |         LL | LLCorrectionFactor |      AIC |      BIC | LR\_p |
-| :- | :------- | ---------: | ---------: | -----------------: | -------: | -------: | :---- |
-| 1 | M1 free  |          8 | \-2568.045 |             2.0353 | 5152.090 | 5200.297 |       |
-| 3 | M2 fixed |         10 | \-2541.472 |             1.7478 | 5102.944 | 5163.203 | 0.000 |
-| 5 | M3 fixed |         11 | \-2529.299 |             1.6406 | 5080.599 | 5146.883 | 0.000 |
-| 2 | M2 free  |         12 | \-2540.601 |             1.5459 | 5105.202 | 5177.512 | 1.000 |
-| 4 | M3 free  |         14 | \-2528.913 |             1.5349 | 5085.826 | 5170.187 | 0.000 |
+|     | Title    | Parameters |        LL | LLCorrectionFactor |      AIC |      BIC | LR_p  |
+|:----|:---------|-----------:|----------:|-------------------:|---------:|---------:|:------|
+| 1   | M1 free  |          8 | -2568.045 |             2.0353 | 5152.090 | 5200.297 |       |
+| 3   | M2 fixed |         10 | -2541.472 |             1.7478 | 5102.944 | 5163.203 | 0.000 |
+| 5   | M3 fixed |         11 | -2529.299 |             1.6406 | 5080.599 | 5146.883 | 0.000 |
+| 2   | M2 free  |         12 | -2540.601 |             1.5459 | 5105.202 | 5177.512 | 1.000 |
+| 4   | M3 free  |         14 | -2528.913 |             1.5349 | 5085.826 | 5170.187 | 0.000 |
 
 According to the plot below, BIC similarly indicated that fit improved
 until model M3 fixed. Thus, we decided to use `M3 fixed` as our final
@@ -202,19 +202,19 @@ countries in these effects.
 The structural parameters of the final model are displayed in the table
 below.
 
-|     | Parameter                 | level   | est\_sig     | se   | pval | confint          |
-| :-- | :------------------------ | :------ | :----------- | :--- | :--- | :--------------- |
-| 2   | RI (Religiosity)          | Between | 0.25\*\*\*   | 0.02 | 0.00 | \[ 0.20, 0.29\]  |
-| 5   | RI (Perceived norms)      | Between | 0.09\*       | 0.04 | 0.01 | \[ 0.02, 0.17\]  |
-| 3   | RI (religiosity \* norms) | Between | 0.41\*\*\*   | 0.09 | 0.00 | \[ 0.24, 0.58\]  |
-| 4   | Mean (wellbeing)          | Between | \-1.10\*\*\* | 0.10 | 0.00 | \[-1.29, -0.92\] |
-| 1   | Variance (wellbeing)      | Between | 0.02\*       | 0.01 | 0.04 | \[ 0.00, 0.04\]  |
-| 6   | Control (majority)        | Within  | 0.04         | 0.02 | 0.06 | \[-0.00, 0.07\]  |
-| 7   | Control (ses)             | Within  | 0.14\*\*\*   | 0.01 | 0.00 | \[ 0.12, 0.16\]  |
-| 8   | Control (gender)          | Within  | \-0.02       | 0.02 | 0.33 | \[-0.06, 0.02\]  |
-| 9   | Control (education)       | Within  | 0.03\*\*\*   | 0.00 | 0.00 | \[ 0.02, 0.04\]  |
-| 10  | Control (age)             | Within  | 0.00\*\*     | 0.00 | 0.00 | \[ 0.00, 0.00\]  |
-| 1.1 | Variance (wellbeing)      | Between | 0.02\*       | 0.01 | 0.04 | \[ 0.00, 0.04\]  |
+|     | Parameter                 | level   | est_sig     | se   | pval | confint          |
+|:----|:--------------------------|:--------|:------------|:-----|:-----|:-----------------|
+| 3   | RI (Religiosity)          | Between | 0.25\*\*\*  | 0.02 | 0.00 | \[ 0.20, 0.29\]  |
+| 5   | RI (Perceived norms)      | Between | 0.09\*      | 0.04 | 0.01 | \[ 0.02, 0.17\]  |
+| 2   | RI (religiosity \* norms) | Between | 0.41\*\*\*  | 0.09 | 0.00 | \[ 0.24, 0.58\]  |
+| 4   | Mean (wellbeing)          | Between | -1.10\*\*\* | 0.10 | 0.00 | \[-1.29, -0.92\] |
+| 1   | Variance (wellbeing)      | Between | 0.02\*      | 0.01 | 0.04 | \[ 0.00, 0.04\]  |
+| 7   | Control (majority)        | Within  | 0.04        | 0.02 | 0.06 | \[-0.00, 0.07\]  |
+| 11  | Control (ses)             | Within  | 0.14\*\*\*  | 0.01 | 0.00 | \[ 0.12, 0.16\]  |
+| 10  | Control (gender)          | Within  | -0.02       | 0.02 | 0.33 | \[-0.06, 0.02\]  |
+| 8   | Control (education)       | Within  | 0.03\*\*\*  | 0.00 | 0.00 | \[ 0.02, 0.04\]  |
+| 9   | Control (age)             | Within  | 0.00\*\*    | 0.00 | 0.00 | \[ 0.00, 0.00\]  |
+| 1.1 | Variance (wellbeing)      | Between | 0.02\*      | 0.01 | 0.04 | \[ 0.00, 0.04\]  |
 
 With regard to the preregistered research questions, we must first
 establish whether the relationship between religiosity and well-being
@@ -226,7 +226,7 @@ religion.
 With regard to research question *a*, whether religious people have
 higher well-being, we conclude that, on average across the sample,
 religiosity positively predicts wellbeing,
-\(B = 0.25***, CI[ 0.20, 0.29]\).
+*B* = 0.25 \*  \* \*,*C**I*\[0.20,0.29\].
 
 Due to the significant interaction between religiosity and perceived
 cultural norms of religion, this effect tends to be stronger on average
@@ -246,44 +246,44 @@ identical with the original confidence intervals. We thus conclude that
 omitting participants with failed attention checks did not meaningfully
 affect the conclusions of the present study.
 
-|     | Parameter                 | level   | est\_sig     | se   | pval | confint          | confint sens     |
-| :-- | :------------------------ | :------ | :----------- | :--- | :--- | :--------------- | :--------------- |
-| 2   | RI (Religiosity)          | Between | 0.25\*\*\*   | 0.02 | 0.00 | \[ 0.20, 0.29\]  | \[ 0.20, 0.29\]  |
-| 5   | RI (Perceived norms)      | Between | 0.09\*       | 0.04 | 0.01 | \[ 0.02, 0.17\]  | \[ 0.02, 0.16\]  |
-| 3   | RI (religiosity \* norms) | Between | 0.41\*\*\*   | 0.09 | 0.00 | \[ 0.24, 0.58\]  | \[ 0.26, 0.61\]  |
-| 4   | Mean (wellbeing)          | Between | \-1.10\*\*\* | 0.10 | 0.00 | \[-1.29, -0.92\] | \[-1.29, -0.92\] |
-| 1   | Variance (wellbeing)      | Between | 0.02\*       | 0.01 | 0.04 | \[ 0.00, 0.04\]  | \[ 0.00, 0.04\]  |
-| 6   | Control (majority)        | Within  | 0.04         | 0.02 | 0.06 | \[-0.00, 0.07\]  | \[ 0.01, 0.08\]  |
-| 7   | Control (ses)             | Within  | 0.14\*\*\*   | 0.01 | 0.00 | \[ 0.12, 0.16\]  | \[ 0.11, 0.15\]  |
-| 8   | Control (gender)          | Within  | \-0.02       | 0.02 | 0.33 | \[-0.06, 0.02\]  | \[-0.05, 0.02\]  |
-| 9   | Control (education)       | Within  | 0.03\*\*\*   | 0.00 | 0.00 | \[ 0.02, 0.04\]  | \[ 0.02, 0.04\]  |
-| 10  | Control (age)             | Within  | 0.00\*\*     | 0.00 | 0.00 | \[ 0.00, 0.00\]  | \[ 0.00, 0.00\]  |
-| 1.1 | Variance (wellbeing)      | Between | 0.02\*       | 0.01 | 0.04 | \[ 0.00, 0.04\]  | \[ 0.00, 0.04\]  |
+|     | Parameter                 | level   | est_sig     | se   | pval | confint          | confint sens     |
+|:----|:--------------------------|:--------|:------------|:-----|:-----|:-----------------|:-----------------|
+| 3   | RI (Religiosity)          | Between | 0.25\*\*\*  | 0.02 | 0.00 | \[ 0.20, 0.29\]  | \[ 0.20, 0.29\]  |
+| 5   | RI (Perceived norms)      | Between | 0.09\*      | 0.04 | 0.01 | \[ 0.02, 0.17\]  | \[ 0.02, 0.16\]  |
+| 2   | RI (religiosity \* norms) | Between | 0.41\*\*\*  | 0.09 | 0.00 | \[ 0.24, 0.58\]  | \[ 0.26, 0.61\]  |
+| 4   | Mean (wellbeing)          | Between | -1.10\*\*\* | 0.10 | 0.00 | \[-1.29, -0.92\] | \[-1.29, -0.92\] |
+| 1   | Variance (wellbeing)      | Between | 0.02\*      | 0.01 | 0.04 | \[ 0.00, 0.04\]  | \[ 0.00, 0.04\]  |
+| 7   | Control (majority)        | Within  | 0.04        | 0.02 | 0.06 | \[-0.00, 0.07\]  | \[ 0.01, 0.08\]  |
+| 11  | Control (ses)             | Within  | 0.14\*\*\*  | 0.01 | 0.00 | \[ 0.12, 0.16\]  | \[ 0.11, 0.15\]  |
+| 10  | Control (gender)          | Within  | -0.02       | 0.02 | 0.33 | \[-0.06, 0.02\]  | \[-0.05, 0.02\]  |
+| 8   | Control (education)       | Within  | 0.03\*\*\*  | 0.00 | 0.00 | \[ 0.02, 0.04\]  | \[ 0.02, 0.04\]  |
+| 9   | Control (age)             | Within  | 0.00\*\*    | 0.00 | 0.00 | \[ 0.00, 0.00\]  | \[ 0.00, 0.00\]  |
+| 1.1 | Variance (wellbeing)      | Between | 0.02\*      | 0.01 | 0.04 | \[ 0.00, 0.04\]  | \[ 0.00, 0.04\]  |
 
 # Exploratory analyses
 
 In addition to the planned deductive analyses, we conducted an inductive
 (exploratory) analysis using random forests, predicting a mean score of
-wellbeing from the individual-level predictors. This analysis should
-reveal what the most important predictors of wellbeing are in the
-dataset provided, and can therefore help contextualize the planned
-analyses. Is religion indeed important? Are perceived cultural norms?
-How important are they, compared to other measured variables?
+wellbeing from the individual-level predictors and country. This
+analysis should reveal what the most important predictors of wellbeing
+are in the dataset provided, and can therefore help contextualize the
+planned analyses. Is religion indeed important? Are perceived cultural
+norms? How important are they, compared to other measured variables?
 
-The tuned model had an \(R^2_{oob} = 0.28\), which is an estimate of
-explained variance in the testing sample. For a flexible model such as
-random forests, this predictive performance is quite low. There are
-several potential explanations. First, perhaps some crucial predictors
-of wellbeing are not included in the sample. For example, the data do
-not contain any factors related to quality of social ties. Second, it is
-possible that there is a large *irreducible error* in wellbeing: Perhaps
-some factors that contribute to wellbeing are outside of the
-psychosocial realm, and would thus be overlooked by a study such as
-this. Third, perhaps the measurement error of the dependent variable is
-high. Despite the excellent reliability of the scale (\(\alpha > .90\)),
-we encountered irregularities during factor analysis. Our analysis
-assumes that the scale is unidimensional, but some of our analyses
-contradict this assumption.
+The tuned model had an *R*<sub>*o**o**b*</sub><sup>2</sup> = 0.28, which
+is an estimate of explained variance in the testing sample. For a
+flexible model such as random forests, this predictive performance is
+quite low. There are several potential explanations. First, perhaps some
+crucial predictors of wellbeing are not included in the sample. For
+example, the data do not contain any factors related to quality of
+social ties. Second, it is possible that there is a large *irreducible
+error* in wellbeing: Perhaps some factors that contribute to wellbeing
+are outside of the psychosocial realm, and would thus be overlooked by a
+study such as this. Third, perhaps the measurement error of the
+dependent variable is high. Despite the excellent reliability of the
+scale (*α* \> .90), we encountered irregularities during factor
+analysis. Our analysis assumes that the scale is unidimensional, but
+some of our analyses contradict this assumption.
 
 ## Variable importance
 
@@ -347,7 +347,7 @@ other variables.
 # References
 
 Stekhoven, D.J. and Buehlmann, P. (2012). ‘MissForest - nonparametric
-missing value imputation for mixed-type data’, Bioinformatics, 28(1)
+missing value imputation for mixed-type data,’ Bioinformatics, 28(1)
 2012, 112-118. <https://doi.org/10.1093/bioinformatics/btr597>.
 
 Van Lissa, C. J., Brandmaier, A. M., Brinkman, L., Lamprecht, A.-L.,
@@ -355,9 +355,9 @@ Peikert, A., Struiksma, M. E., & Vreede, B. (in press). WORCS: A
 Workflow for Open Reproducible Code in Science. Data Science, in press.
 <https://doi.org/10.17605/OSF.IO/ZCVBS>
 
-<div id="refs" class="references">
+<div id="refs" class="references csl-bib-body hanging-indent">
 
-<div id="ref-vanlissaWORCSWorkflowOpen2020">
+<div id="ref-vanlissaWORCSWorkflowOpen2020" class="csl-entry">
 
 Van Lissa, Caspar J., Andreas M. Brandmaier, Barbara Vreede, Rens van de
 Schoot, and Loek Brinkman. 2020. “WORCS: A Workflow for Open

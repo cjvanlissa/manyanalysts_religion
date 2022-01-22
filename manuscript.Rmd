@@ -1,7 +1,7 @@
 ---
 title: "ManyAnalysts team 067"
 author: "Caspar J. van Lissa"
-output: pdf_document
+output: github_document
 date: '`r format(Sys.time(), "%d %B, %Y")`'
 bibliography: references.bib
 knit: worcs::cite_all
@@ -58,8 +58,9 @@ library(tuneRanger)
 library(ranger)
 library(metaforest)
 library(lavaan)
+library(GPArotation)
 # Load data
-if(isTRUE(tools::md5sum("df_analyze.RData") == "a41429323622702faf12be4dfc3a192b")){
+if(!run_everything){
   df <- readRDS("df_analyze.RData")
 } else {
   load_data()
@@ -861,7 +862,7 @@ knitr::kable(tab_orig)
 
 # Exploratory analyses
 
-In addition to the planned deductive analyses, we conducted an inductive (exploratory) analysis using random forests, predicting a mean score of wellbeing from the individual-level predictors.
+In addition to the planned deductive analyses, we conducted an inductive (exploratory) analysis using random forests, predicting a mean score of wellbeing from the individual-level predictors and country.
 This analysis should reveal what the most important predictors of wellbeing are in the dataset provided, and can therefore help contextualize the planned analyses. Is religion indeed important? Are perceived cultural norms? How important are they, compared to other measured variables?
 
 ```{r}

@@ -16,3 +16,6 @@
 !codebook_df.csv
 *.RData
 *.dat
+!manuscript.pdf
+!preregistration.pdf
+!commentary_submit.docx
